@@ -1,0 +1,60 @@
+body {
+    font-family: 'Times New Roman', sans-serif;
+    font-weight: medium;
+    color: royalblue;
+}
+
+img.face {
+    float: right;
+    width: 200px;
+}
+
+table {
+    border-spacing: 5px;
+    margin: 1px;
+}
+
+ul {
+    color: black;
+}
+
+th, td {
+    padding: 15px;
+    vertical-align: top;
+}
+
+table.special, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table p {
+    font-size: small;
+}
+
+p.best {
+    font-style: italic;
+}
+
+/* unvisited link */
+a:link {
+    color: limegreen;
+}
+
+/* visited link */
+a:visited {
+    color: orangered;
+}
+
+div.movies {
+    font-family: sans-serif;
+}
+
+div.top {
+    width: 800px;
+}
+
+div.top p.desc {
+    width: 600px;
+    float: right;
+}
