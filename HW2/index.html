@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CIS371 HW2</title>
+        <script type="text/javascript">
+            var custName = ""
+            var tableNum = ""
+            var applePrice = 1.25
+            var bananaPrice = 2.00
+            var orangePrice = 1.25
+            var total = 0.00
+            
+            function promptForName() {
+                custName = prompt("Please enter your name", "Test");
+                document.getElementById("partyName").innerHTML = "Name: " + custName;
+            }
+            
+            function promptForTableNum() {
+                tableNum = prompt("What is your table number?", "0");
+                document.getElementById("tableNum").innerHTML = "Table #" + tableNum;
+            }
+            
+            function add(item) {
+                var qty = 0;
+                var price = 0.00;
+                
+                if (item == "apple") {
+                    qty = document.getElementById("appleQty");
+                    qty.innerHTML++;
+                    price = (parseFloat(qty.innerHTML) * applePrice).toFixed(2);
+                    document.getElementById("appleTotP").innerHTML = "$" + price;
+                    total += applePrice;
+                } else if (item == "banana") {
+                    qty = document.getElementById("bananaQty");
+                    qty.innerHTML++;
+                    price = (parseFloat(qty.innerHTML) * bananaPrice).toFixed(2);
+                    document.getElementById("bananaTotP").innerHTML = "$" + price; 
+                    total += bananaPrice;
+                } else if (item == "orange") {
+                    qty = document.getElementById("orangeQty");
+                    qty.innerHTML++;
+                    price = (parseFloat(qty.innerHTML) * orangePrice).toFixed(2);
+                    document.getElementById("orangeTotP").innerHTML = "$" + price;
+                    total += orangePrice;
+                }
+                document.getElementById("TotP").innerHTML = "$" + total.toFixed(2);
+            }
+        </script>
+    </head>
+    <body>  
+        <h1>ABO: Apples, Bananas, Oranges</h1>
+        <h4 id="partyName"></h4>
+        <h4 id="tableNum">Table ##</h4>
+        <div id="menu">
+            <h3>Press an item to add to your order.</h3>
+             <table>
+                <tr>
+                    <td><img id="apple" src="apple.png" onclick="add('apple');"/></td>
+                    <td><img id="banana" src="banana.png" onclick="add('banana');"/></td>
+                    <td><img id="orange" src="orange.png" onclick="add('orange');"/></td>
+                </tr>
+            </table>
+        </div>
+        <div id="order">
+            <table>
+                <tr>
+                    <th>Qty</th>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td id="appleQty">0</td>
+                    <td>Apple</td>
+                    <td id="appleTotP">$0.00</td>
+                </tr>
+                <tr>
+                    <td id="bananaQty">0</td>
+                    <td>Banana</td>
+                    <td id="bananaTotP">$0.00</td>
+                </tr>
+                <tr>
+                    <td id="orangeQty">0</td>
+                    <td>Orange</td>
+                    <td id="orangeTotP">$0.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td id="TotP">$0.00</td>
+                </tr>
+            </table>
+        </div>
+        
+        <script type="text/javascript">
+            promptForName();
+            promptForTableNum();
+        </script>
+    </body>
+</html>
