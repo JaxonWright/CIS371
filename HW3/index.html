@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CIS371 HW3</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body onload="scramble()">
+        <h1>Rare scrambled Pepe</h1>
+        <table>
+            <tr>
+                <td><img id='1' alt="P1" onclick="moveSlice(1)"/></td>
+                <td><img id='2' alt="P2" onclick="moveSlice(2)"/></td>
+                <td><img id='3' alt="P3" onclick="moveSlice(3)"/></td>
+            </tr>
+            <tr>
+                <td><img id='4' alt="P4" onclick="moveSlice(4)"/></td>
+                <td><img id='5' alt="P5" onclick="moveSlice(5)"/></td>
+                <td><img id='6' alt="P6" onclick="moveSlice(6)"/></td>      
+            </tr>
+            <tr>
+                <td><img id='7' alt="P7" onclick="moveSlice(7)"/></td>
+                <td><img id='8' alt="P8" onclick="moveSlice(8)"/></td>      
+                <td><img id='9' alt="P9" onclick="moveSlice(9)"/></td>
+            </tr>
+            <tr>
+                <td><img id='10' alt="P10" onclick="moveSlice(10)"/></td>
+                <td><img id='11' alt="P11" onclick="moveSlice(11)"/></td>
+                <td><img id='12' alt="P12" onclick="moveSlice(12)"/></td>            
+            </tr>
+        </table>
+    </body>
+    
+    <script type="text/javascript">
+        var selected = null;
+        function moveSlice(id) {
+            if (selected == null) {
+                selected = id;
+            } else {
+                swap(id, selected);
+                selected = null;
+                checkIfWon();
+            }
+
+        }
+        function checkIfWon() {
+            var win = true;
+            for (i=1; i<13; i++) {
+                if (!document.getElementById(i).src.match(i + ".jpg")) {
+                    win = false;
+                    break;   
+                }
+            }
+            if (win) {
+                alert("Grats. You turned rare scrambled Pepe into regular Pepe!");
+            }
+        }
+        function swap(id1, id2) {        
+            var temp = document.getElementById(id1).src;
+            document.getElementById(id1).src = document.getElementById(id2).src;
+            document.getElementById(id2).src = temp;
+        }
+        function scramble() {
+            for (i=1; i<13; i++) {
+                var locationFound = false;
+                while (!locationFound) {
+                    var rand = Math.floor(Math.random()*12+1);
+                    if (document.getElementById(rand).src == "") {
+                        document.getElementById(rand).src = i + '.jpg';
+                        locationFound = true;
+                    }
+                }
+
+            }
+
+        }
+
+    </script>
+</html>
