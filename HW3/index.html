@@ -15,21 +15,21 @@
             <tr>
                 <td><img id='4' alt="P4" onclick="moveSlice(4)"/></td>
                 <td><img id='5' alt="P5" onclick="moveSlice(5)"/></td>
-                <td><img id='6' alt="P6" onclick="moveSlice(6)"/></td>      
+                <td><img id='6' alt="P6" onclick="moveSlice(6)"/></td>
             </tr>
             <tr>
                 <td><img id='7' alt="P7" onclick="moveSlice(7)"/></td>
-                <td><img id='8' alt="P8" onclick="moveSlice(8)"/></td>      
+                <td><img id='8' alt="P8" onclick="moveSlice(8)"/></td>
                 <td><img id='9' alt="P9" onclick="moveSlice(9)"/></td>
             </tr>
             <tr>
                 <td><img id='10' alt="P10" onclick="moveSlice(10)"/></td>
                 <td><img id='11' alt="P11" onclick="moveSlice(11)"/></td>
-                <td><img id='12' alt="P12" onclick="moveSlice(12)"/></td>            
+                <td><img id='12' alt="P12" onclick="moveSlice(12)"/></td>
             </tr>
         </table>
     </body>
-    
+
     <script type="text/javascript">
         var selected = null;
         function moveSlice(id) {
@@ -47,14 +47,16 @@
             for (i=1; i<13; i++) {
                 if (!document.getElementById(i).src.match(i + ".jpg")) {
                     win = false;
-                    break;   
+                    break;
                 }
             }
             if (win) {
-                alert("Grats. You turned rare scrambled Pepe into regular Pepe!");
+                var c = confirm("Grats. You turned rare scrambled Pepe into regular Pepe! Press OK to restart.");
+                if (c == true)
+                  location.reload();
             }
         }
-        function swap(id1, id2) {        
+        function swap(id1, id2) {
             var temp = document.getElementById(id1).src;
             document.getElementById(id1).src = document.getElementById(id2).src;
             document.getElementById(id2).src = temp;
@@ -64,14 +66,13 @@
                 var locationFound = false;
                 while (!locationFound) {
                     var rand = Math.floor(Math.random()*12+1);
+                    console.log(document.getElementById(rand).src);
                     if (document.getElementById(rand).src == "") {
                         document.getElementById(rand).src = i + '.jpg';
                         locationFound = true;
                     }
                 }
-
             }
-
         }
 
     </script>
