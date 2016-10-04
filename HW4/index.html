@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>CIS371 HW4</title>
+    </head>
+    <body>
+        <h1>Weather Report: Grand Rapids</h1>
+
+        <form action="action.php">
+          <b>Year:</b> &nbsp;&nbsp;
+          <input type="number" min="1945" max="2016" placeholder="2016" name="year"><br>
+          <b>Month:</b>
+          <input type="text" placeholder="January" name="month"><br>
+          <b>Type:</b> &nbsp;&nbsp;
+          Average<input type="radio" name="report" value="average">
+          List<input type="radio" name="report" value="list"><br>
+          <b>Temp:</b> &nbsp;
+          High<input type="radio" name="temp" value="high">
+          Average<input type="radio" name="temp" value="average">
+          Low<input type="radio" name="temp" value="low"><br>
+          <input type="submit" value="Submit">
+        </form>
+    </body>
+</html>
