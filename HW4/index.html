@@ -6,11 +6,12 @@
     <body>
         <h1>Weather Report: Grand Rapids</h1>
 
-        <form action="action.php">
+        <form method="GET" name="weatherForm" onsubmit="return validate()" 
+        action="action.php">
           <b>Year:</b> &nbsp;&nbsp;
           <input type="number" min="1945" max="2016" placeholder="2016" name="year"><br>
           <b>Month:</b>
-          <input type="text" placeholder="January" name="month"><br>
+          <input type="number" min="1" max="12" placeholder="1" name="month"><br>
           <b>Type:</b> &nbsp;&nbsp;
           Average<input type="radio" name="report" value="average">
           List<input type="radio" name="report" value="list"><br>
@@ -20,5 +21,26 @@
           Low<input type="radio" name="temp" value="low"><br>
           <input type="submit" value="Submit">
         </form>
+        <script type="text/javascript">
+            function validate(){
+                if(document.weatherForm.year.value == "" ){
+                    alert("Please provide a Year");
+                    return false;
+                }
+                if(document.weatherForm.month.value == "" ){
+                    alert("Please provide a Month (1-12)");
+                    return false;
+                }
+                if(document.weatherForm.report.value == "" ){
+                    alert("Please provide a Report Type");
+                    return false;
+                }
+                if(document.weatherForm.temp.value == "" ){
+                    alert("Please provide a Temperature Type");
+                    return false;
+                }
+                return true;
+            }
+        </script>
     </body>
 </html>

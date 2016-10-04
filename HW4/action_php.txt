@@ -18,13 +18,7 @@
             while (true) {
                 $currLine = fgets($tempFile);
                 $currReport = explode(",",$currLine);
-                //[0]: Location
-                //[1]: month
-                //[2]: day
-                //[3]: year
-                //[4]: avg temp
-                //[5]: max temp
-                //[6]: min temp
+                //[0]Location, [1]month, [2]day, [3]year, [4]avg, [5]max, [6]min
                 if($year == $currReport[3] && $month == $currReport[1]) {
                     //This entry is valid
                     $validReports[] = $currLine;
@@ -36,7 +30,6 @@
                     feof($tempFile))
                         break;
             }
-            
             //used for picking correct temp value in various spots
             $index = 0;
             if($tempType==="high") $index = 5;
